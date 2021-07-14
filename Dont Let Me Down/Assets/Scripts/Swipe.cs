@@ -20,28 +20,8 @@ public class Swipe : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
-            starttime = Time.time;
-            startpos = Input.GetTouch(0).position;
+       
 
-            Debug.Log("start pos "+startpos);
-        }
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended){
-            endtime = Time.time;
-        
-            interval = endtime - starttime;
-
-            endpos = Input.GetTouch(0).position;
-        
-            Debug.Log("End pos "+endpos);
-            
-            direction = startpos - endpos;
-            Vector2 ballforce = new Vector2(direction.x,direction.y);
-            rb.isKinematic = false;
-            rb.AddForce(-ballforce*throwforce*Time.deltaTime, ForceMode.Impulse);
-        }
-
-        rb.AddForce(-gravity*Time.deltaTime, ForceMode.Impulse);
-        Debug.Log(rb.AddForce(-gravity*Time.deltaTime, ForceMode.Impulse));
+    
     }
 }
